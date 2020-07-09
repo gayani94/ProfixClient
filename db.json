@@ -83,6 +83,20 @@
       "Currency": "JPY",
       "TransactTime": "20200623-15:35:00:00",
       "id": 6
+    },
+    {
+      "ClOrdID": "FIX_TEST_06",
+      "OrigClOrdID": "",
+      "MsgType": "D",
+      "Symbol": "8001",
+      "OrdType": "1",
+      "HandlInst": "3",
+      "Side": "1",
+      "OrderQty": "300",
+      "Price": "2000",
+      "Currency": "JPY",
+      "TransactTime": "20200710-15:35:00:00",
+      "id": 7
     }
   ],
   "cars": [

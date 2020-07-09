@@ -14,6 +14,7 @@ import OrderDetail from './Components/OrderDetail.vue';
       },
       {
         path: '/order-detail',
+        name: 'order-detail',
         component: OrderDetail
       }
     ];

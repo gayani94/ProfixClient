@@ -6,7 +6,7 @@
       </md-table-toolbar>
 
       <md-table-row slot="md-table-row" slot-scope="{ item }">
-         <md-table-cell md-label="ClOrdID" md-numeric><md-button class="md-raised md-accent" style="background-color:#ff5252">{{ item.ClOrdID }}</md-button></md-table-cell>
+         <md-table-cell md-label="ClOrdID" md-numeric><md-button  @click='viewOrderDetails(item)' class="md-raised md-accent" style="background-color:#ff5252">{{ item.ClOrdID }}</md-button></md-table-cell>
         <md-table-cell md-label="OrigClOrdID" md-sort-by="OrigClOrdID">{{ item.OrigClOrdID }}</md-table-cell>
         <md-table-cell md-label="MsgType" md-sort-by="MsgType">{{ item.MsgType }}</md-table-cell>
         <md-table-cell md-label="Symbol" md-sort-by="Symbol">{{ item.Symbol }}</md-table-cell>
@@ -40,9 +40,19 @@ export default {
         } catch(e){
 console.log(e);
         }
+    },
+  methods: {
+    viewOrderDetails: function(index) {
+      console.log(index);
+      this.$router.push({name: 'order-detail', params: { id: index }});
+      
     }
+  }
+
 }
 
+
+ 
 
 
 
