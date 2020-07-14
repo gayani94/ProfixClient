@@ -151,32 +151,31 @@ export default {
       }
     };
 
-    //formattedJson.sessions = sessionData;
+    formattedJson.sessions = sessionData;
     console.log(sessionData);
     return formattedJson;
   },
   methods: {
     submitForm() {
       
-      let rJson = JSON.stringify(this.formdata);
-      console.log(rJson);
-
-      console.log(JSON.parse(rJson));
-      
-      
-      var resultText = '11 = '+this.formdata.ClOrdID+', 35 ='+this.formdata.MsgType+', 55 = '+this.formdata.Symbol+', 40 ='+this.formdata.OrdType+', 21 ='+this.formdata.HandlInst+', 54 = '+this.formdata.Side+', 38 = '+this.formdata.OrderQty+', 44 = '+this.formdata.Price+', 15 = '+this.formdata.Currency+', 60 = '+this.formdata.TransactTime+'';
-
-      document.getElementById('resultText').innerHTML = resultText;
-
       if(this.formdata.MsgType == 'G' ){
         this.formdata.OrigClOrdID = this.formdata.ClOrdID;
         this.formdata.ClOrdID = this.formdata.ClOrdID + '_A'
       }
 
+      var resultText = '11 = '+this.formdata.ClOrdID+', 35 ='+this.formdata.MsgType+', 55 = '+this.formdata.Symbol+', 40 ='+this.formdata.OrdType+', 21 ='+this.formdata.HandlInst+', 54 = '+this.formdata.Side+', 38 = '+this.formdata.OrderQty+', 44 = '+this.formdata.Price+', 15 = '+this.formdata.Currency+', 60 = '+this.formdata.TransactTime+'';
+
+      document.getElementById('resultText').innerHTML = resultText;
+
+      let rJson = JSON.stringify(this.formdata);
+      console.log(rJson);
+      console.log(JSON.parse(rJson));
+ 
       axios
-      .post("http://localhost:8080/HelloJercey/rest/order",rJson)
+      .post("http://localhost:8080/HelloJercey/rest/order",rJson, {headers: {'Content-Type': 'application/json'}})
       .then(data => {
         console.log(data.data);
+        console.log("hariiiiiiiiiiiiii");
       })
       .catch(error => {
         console.log(error);
