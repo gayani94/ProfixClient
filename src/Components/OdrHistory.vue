@@ -33,10 +33,10 @@ export default {
     },
     async created(){
         try{
-            const res = await axios.get('http://localhost:3000/historyList');
+            const res = await axios.get('http://localhost:8080/HelloJercey/rest/order/list');
             this.historyList = res.data;
 
-          //  console.log(this.historyList[0].ClietOrdID);
+          console.log(this.historyList);
         } catch(e){
 console.log(e);
         }

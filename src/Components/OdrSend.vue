@@ -175,14 +175,14 @@ export default {
       .post("http://localhost:8080/HelloJercey/rest/order",rJson, {headers: {'Content-Type': 'application/json'}})
       .then(data => {
         console.log(data.data);
-        console.log("hariiiiiiiiiiiiii");
+        console.log("Working!!!!");
       })
       .catch(error => {
         console.log(error);
       });
 
       axios.post('http://localhost:3000/historyList',JSON.parse(rJson)).then(data => {
-        console.log('elaa');
+        console.log('Working!!!');
       })
       .catch(error => {
         console.log(error);
