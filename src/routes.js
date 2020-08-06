@@ -11,9 +11,10 @@ import OrderDetail from './Components/OrderDetail.vue';
       {
         path: '',
         component: OdrSend
-      },
+      }
+      ,
       {
-        path: '/order-detail',
+        path: '/order-detail/:orderOBJ',
         name: 'order-detail',
         component: OrderDetail
       }

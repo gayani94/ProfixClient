@@ -157,10 +157,15 @@ export default {
   },
   methods: {
     submitForm() {
+
+      var url = 'http://localhost:8080/HelloJercey/rest/order';
       
       if(this.formdata.MsgType == 'G' ){
         this.formdata.OrigClOrdID = this.formdata.ClOrdID;
         this.formdata.ClOrdID = this.formdata.ClOrdID + '_A'
+
+
+        url = 'http://localhost:8080/HelloJercey/rest/order/'+this.formdata.OrigClOrdID+'/messages';
       }
 
       var resultText = '11 = '+this.formdata.ClOrdID+', 35 ='+this.formdata.MsgType+', 55 = '+this.formdata.Symbol+', 40 ='+this.formdata.OrdType+', 21 ='+this.formdata.HandlInst+', 54 = '+this.formdata.Side+', 38 = '+this.formdata.OrderQty+', 44 = '+this.formdata.Price+', 15 = '+this.formdata.Currency+', 60 = '+this.formdata.TransactTime+'';
@@ -172,7 +177,7 @@ export default {
       console.log(JSON.parse(rJson));
  
       axios
-      .post("http://localhost:8080/HelloJercey/rest/order",rJson, {headers: {'Content-Type': 'application/json'}})
+      .post(url,rJson, {headers: {'Content-Type': 'application/json'}})
       .then(data => {
         console.log(data.data);
         console.log("Working!!!!");

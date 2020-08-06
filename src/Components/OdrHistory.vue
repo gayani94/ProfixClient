@@ -44,7 +44,13 @@ console.log(e);
   methods: {
     viewOrderDetails: function(index) {
       console.log(index);
-      this.$router.push({name: 'order-detail', params: { id: index }});
+      axios.get('http://localhost:8080/HelloJercey/rest/order/'+index.OrigClOrdID+'/messages').
+      then(response => {
+        console.log(response.data);
+        this.$router.push({name: 'order-detail', params: { orderOBJ: response.data }});
+      }).catch(error => console.log(error));
+      
+      
       
     }
   }

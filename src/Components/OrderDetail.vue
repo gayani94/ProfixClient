@@ -1,9 +1,26 @@
 <template>
-     <div>
+        
 
-     </div>
+        <div style="width:60%">
+
+            {{formdata}}
+    
+        </div>
+
+
 </template>
 <script>
 
-//console.log(this.$route.params.id);
+export default {
+    data(){
+         let formdata = this.$route.params.orderOBJ;
+         console.log(this.$route.params.orderOBJ);
+         let formattedJson = {
+         formdata: this.$route.params.orderOBJ
+    };
+         return formattedJson;
+    }
+}
+
+
 </script>
